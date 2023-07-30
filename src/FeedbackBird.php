@@ -1,9 +1,9 @@
 <?php
 
-namespace FeedbackBird\Widget;
+namespace FeedbackBird\Plugin;
 
 use Craft;
-use FeedbackBird\Widget\models\Settings;
+use FeedbackBird\Plugin\models\Settings;
 use craft\base\Model;
 use craft\base\Plugin;
 

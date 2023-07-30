@@ -1,6 +1,6 @@
 <?php
 
-namespace FeedbackBird\Widget\models;
+namespace FeedbackBird\Plugin\models;
 
 use Craft;
 use craft\base\Model;
