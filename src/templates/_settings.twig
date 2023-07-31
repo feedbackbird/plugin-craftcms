@@ -3,33 +3,58 @@
 
 {% import '_includes/forms.twig' as forms %}
 
-
 <div class="settings">
-    <h1>Main Settings</h1>
+    <h2>General</h2>
 
     {{ forms.lightswitchField({
         label:        "Widget Status",
         id:           'widgetStatus',
         name:         'widgetStatus',
+        instructions: 'Enable or disable the widget.',
         on:           settings.widgetStatus,
         errors:       settings.getErrors('widgetStatus')
     }) }}
 
+    {{ forms.selectField({
+        label: 'Widget Position',
+        id: 'widgetPosition',
+        name: 'widgetPosition',
+        instructions: 'Select the position of the widget on your website.',
+        options: {
+            'top-right': 'Top Right',
+            'top-left': 'Top Left',
+            'bottom-right': 'Bottom Right',
+            'bottom-left': 'Bottom Left',
+        },
+        value: settings.widgetPosition,
+        errors: settings.getErrors('widgetPosition')
+    }) }}
+
+    {{ forms.colorField({
+        label: 'Widget Color',
+        id: 'widgetColor',
+        name: 'widgetColor',
+        instructions: 'Choose a color for the widget.',
+        value: settings.widgetColor,
+        errors: settings.getErrors('widgetColor')
+    }) }}
+
+
     {{ forms.textField({
-        label: 'UID (Get It through your account → Integrations)',
+        label: 'UID',
         id: 'uID',
         name: 'uID',
+        instructions: 'Enter the UID obtained from your account’s Integrations section. If you don’t have an account, you can create one at <a href="https://feedbackbird.io/" target="_blank">FeedbackBird.io</a>.',
         value: settings.uID,
         errors: settings.getErrors('uID')
     }) }}
 
-    <h1>Setup</h1>
-    <div class="code-instructions">
-        <p>Instructions to show the widget on the website:</p>
-        <pre>
-&lt;!-- Place this code where you want the widget to appear --&gt;
-&lt;script src="https://your-widget-url.com/js/widget.js?token={{ settings.uID }}"&gt;&lt;/script&gt;
-                </pre>
-    </div>
+    <hr/>
 
+    <h2>Show The Widget</h2>
+    <div class="code-instructions">
+        <p>This code snippet should be placed right before the <code>&lt;/head&gt;</code> closing tag in your HTML file.
+        </p>
+        <pre><code>{% verbatim %}{{ craft.feedbackBird.includeJsModule() }}{% endverbatim %}</code></pre>
+    </div>
 </div>

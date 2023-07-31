@@ -10,14 +10,18 @@ use craft\base\Model;
 class Settings extends Model
 {
     public $widgetStatus = true;
+    public $widgetPosition = 'top-right';
+    public $widgetColor = '5562E0';
     public $uID = '';
 
     public function defineRules(): array
     {
         return [
-            [['uID'], 'required'],
-            ['uID', 'string'],
+            [['widgetPosition', 'uID'], 'required'],
             ['widgetStatus', 'boolean', 'trueValue' => true, 'falseValue' => false],
+            ['widgetPosition', 'in', 'range' => ['top-right', 'top-left', 'bottom-right', 'bottom-left']],
+            ['widgetColor', 'string'],
+            ['uID', 'string'],
         ];
     }
 }
