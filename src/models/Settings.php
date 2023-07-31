@@ -2,7 +2,6 @@
 
 namespace FeedbackBird\Plugin\models;
 
-use Craft;
 use craft\base\Model;
 
 /**
@@ -10,4 +9,15 @@ use craft\base\Model;
  */
 class Settings extends Model
 {
+    public $widgetStatus = true;
+    public $uID = '';
+
+    public function defineRules(): array
+    {
+        return [
+            [['uID'], 'required'],
+            ['uID', 'string'],
+            ['widgetStatus', 'boolean', 'trueValue' => true, 'falseValue' => false],
+        ];
+    }
 }

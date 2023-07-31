@@ -2,7 +2,7 @@
     "name": "feedbackbird/plugin-craftcms",
     "description": "Display the FeedbackBird widget in your CraftCMS website and admin. Collect valuable feedback effortlessly and enhance user engagement. Streamline feedback management with ease.",
     "type": "craft-plugin",
-    "license": "mit",
+    "license": "MIT",
     "support": {
         "email": "support@veronalabs.com",
         "issues": "https://github.com/feedbackbird/plugin-craftcms/issues?state=open",
@@ -10,6 +10,12 @@
         "docs": "https://github.com/feedbackbird/plugin-craftcms",
         "rss": "https://github.com/feedbackbird/plugin-craftcms/releases.atom"
     },
+    "authors": [
+        {
+            "name": "VeronaLabs",
+            "homepage": "https://veronalabs.com/"
+        }
+    ],
     "require": {
         "php": ">=8.0.2",
         "craftcms/cms": "^4.4.0"

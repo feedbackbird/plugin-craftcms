@@ -3,4 +3,33 @@
 
 {% import '_includes/forms.twig' as forms %}
 
-{# ... #}
+
+<div class="settings">
+    <h1>Main Settings</h1>
+
+    {{ forms.lightswitchField({
+        label:        "Widget Status",
+        id:           'widgetStatus',
+        name:         'widgetStatus',
+        on:           settings.widgetStatus,
+        errors:       settings.getErrors('widgetStatus')
+    }) }}
+
+    {{ forms.textField({
+        label: 'UID (Get It through your account → Integrations)',
+        id: 'uID',
+        name: 'uID',
+        value: settings.uID,
+        errors: settings.getErrors('uID')
+    }) }}
+
+    <h1>Setup</h1>
+    <div class="code-instructions">
+        <p>Instructions to show the widget on the website:</p>
+        <pre>
+&lt;!-- Place this code where you want the widget to appear --&gt;
+&lt;script src="https://your-widget-url.com/js/widget.js?token={{ settings.uID }}"&gt;&lt;/script&gt;
+                </pre>
+    </div>
+
+</div>

@@ -3,9 +3,13 @@
 namespace FeedbackBird\Plugin;
 
 use Craft;
+use craft\web\twig\variables\CraftVariable;
 use FeedbackBird\Plugin\models\Settings;
 use craft\base\Model;
 use craft\base\Plugin;
+use FeedbackBird\Plugin\services\Assets;
+use FeedbackBird\Plugin\variables\ManifestVariable;
+use yii\base\Event;
 
 /**
  * FeedbackBird plugin
@@ -25,7 +29,7 @@ class FeedbackBird extends Plugin
     {
         return [
             'components' => [
-                // Define component configs here...
+                'assets' => Assets::class,
             ],
         ];
     }
@@ -35,9 +39,8 @@ class FeedbackBird extends Plugin
         parent::init();
 
         // Defer most setup tasks until Craft is fully initialized
-        Craft::$app->onInit(function() {
+        Craft::$app->onInit(function () {
             $this->attachEventHandlers();
-            // ...
         });
     }
 
@@ -56,7 +59,11 @@ class FeedbackBird extends Plugin
 
     private function attachEventHandlers(): void
     {
-        // Register event handlers here ...
-        // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
+        // Handler: CraftVariable::EVENT_INIT
+        Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function (Event $event) {
+            /** @var CraftVariable $variable */
+            $variable = $event->sender;
+            $variable->set('feedbackBird', ManifestVariable::class);
+        });
     }
 }
