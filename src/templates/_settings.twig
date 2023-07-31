@@ -15,6 +15,20 @@
         errors:       settings.getErrors('widgetStatus')
     }) }}
 
+    {{ forms.textField({
+        label: 'UID',
+        id: 'uID',
+        name: 'uID',
+        instructions: 'Enter the UID',
+        tip: 'If you don’t have an account, you can create one at [FeedbackBird]({url}).'|t('app', {
+            url: 'https://feedbackbird.io/register',
+        }),
+        value: settings.uID,
+        errors: settings.getErrors('uID')
+    }) }}
+
+    <h2>Customization</h2>
+
     {{ forms.selectField({
         label: 'Widget Position',
         id: 'widgetPosition',
@@ -39,22 +53,30 @@
         errors: settings.getErrors('widgetColor')
     }) }}
 
-
     {{ forms.textField({
-        label: 'UID',
-        id: 'uID',
-        name: 'uID',
-        instructions: 'Enter the UID obtained from your account’s Integrations section. If you don’t have an account, you can create one at <a href="https://feedbackbird.io/" target="_blank">FeedbackBird.io</a>.',
-        value: settings.uID,
-        errors: settings.getErrors('uID')
+        label: 'Button Label',
+        id: 'widgetButtonLabel',
+        name: 'widgetButtonLabel',
+        instructions: 'Choose a label for the button of widget.',
+        value: settings.widgetButtonLabel,
+        errors: settings.getErrors('widgetButtonLabel')
     }) }}
 
-    <hr/>
+    {{ forms.textField({
+        label: 'Button Label',
+        id: 'widgetSubtitle',
+        name: 'widgetSubtitle',
+        instructions: 'Choose a subtitle for the widget.',
+        value: settings.widgetSubtitle,
+        errors: settings.getErrors('widgetSubtitle')
+    }) }}
 
+
+    <hr/>
     <h2>Show The Widget</h2>
     <div class="code-instructions">
         <p>This code snippet should be placed right before the <code>&lt;/head&gt;</code> closing tag in your HTML file.
         </p>
-        <pre><code>{% verbatim %}{{ craft.feedbackBird.includeJsModule() }}{% endverbatim %}</code></pre>
+        <pre><code>{% verbatim %}{{ craft.feedbackBird.renderJavascript() }}{% endverbatim %}</code></pre>
     </div>
 </div>

@@ -12,6 +12,8 @@ class Settings extends Model
     public $widgetStatus = true;
     public $widgetPosition = 'top-right';
     public $widgetColor = '5562E0';
+    public $widgetButtonLabel = '';
+    public $widgetSubtitle = '';
     public $uID = '';
 
     public function defineRules(): array
@@ -21,6 +23,8 @@ class Settings extends Model
             ['widgetStatus', 'boolean', 'trueValue' => true, 'falseValue' => false],
             ['widgetPosition', 'in', 'range' => ['top-right', 'top-left', 'bottom-right', 'bottom-left']],
             ['widgetColor', 'string'],
+            ['widgetButtonLabel', 'string'],
+            ['widgetSubtitle', 'string'],
             ['uID', 'string'],
         ];
     }

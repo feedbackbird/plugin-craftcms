@@ -6,7 +6,7 @@ use FeedbackBird\Plugin\FeedbackBird;
 
 class ManifestVariable
 {
-    public function includeJsModule(array $attributes = [])
+    public function renderJavascript(array $attributes = [])
     {
         return FeedbackBird::getInstance()->assets->generateAssets();
     }
