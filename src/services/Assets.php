@@ -13,6 +13,7 @@ class Assets extends Component
 {
     private FeedbackBird $plugin;
     private Settings $settings;
+    private mixed $currentUser;
 
     public function __construct($config = [])
     {
@@ -20,6 +21,7 @@ class Assets extends Component
 
         $this->plugin = FeedbackBird::getInstance();
         $this->settings = $this->plugin->getSettings();
+        $this->currentUser = Craft::$app->getUser();
     }
 
     public function getTemplate($template, $variables = [])
@@ -40,12 +42,16 @@ class Assets extends Component
             return;
         }
 
-        return $this->getTemplate('feedbackbird/_assets.twig', [
-            'uid' => $this->settings->uID,
+        $templateData = [
+            'uID' => $this->settings->uID,
+            'userEmail' => $this->currentUser->getIdentity() ? $this->currentUser->getIdentity()->email : '',
             'widgetPosition' => $this->settings->widgetPosition,
             'widgetColor' => $this->settings->widgetColor,
             'widgetButtonLabel' => $this->settings->widgetButtonLabel,
             'widgetSubtitle' => $this->settings->widgetSubtitle,
-        ]);
+            'meta' => json_encode([]),
+        ];
+
+        return $this->getTemplate('feedbackbird/_assets.twig', $templateData);
     }
 }
