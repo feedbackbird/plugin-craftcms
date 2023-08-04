@@ -20,7 +20,7 @@
         id: 'uID',
         name: 'uID',
         instructions: 'Enter the UID',
-        tip: 'If you don’t have an account, you can create one at [FeedbackBird]({url}).'|t('app', {
+        tip: 'If you don’t have an UDI, you should create a new account at [FeedbackBird]({url}) and get it through the integrations.'|t('app', {
             url: 'https://feedbackbird.io/register',
         }),
         value: settings.uID,
@@ -57,13 +57,13 @@
         label: 'Button Label',
         id: 'widgetButtonLabel',
         name: 'widgetButtonLabel',
-        instructions: 'Choose a label for the button of widget.',
+        instructions: 'Choose a label for the button of the widget.',
         value: settings.widgetButtonLabel,
         errors: settings.getErrors('widgetButtonLabel')
     }) }}
 
     {{ forms.textField({
-        label: 'Button Label',
+        label: 'Widget Subtitle',
         id: 'widgetSubtitle',
         name: 'widgetSubtitle',
         instructions: 'Choose a subtitle for the widget.',
