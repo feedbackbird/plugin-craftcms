@@ -20,7 +20,7 @@
         id: 'uID',
         name: 'uID',
         instructions: 'Enter the UID',
-        tip: 'If you don’t have an UDI, you should create a new account at [FeedbackBird]({url}) and get it through the integrations.'|t('app', {
+        tip: 'If you don’t have an UDI, you should create a new account at [FeedbackBird]({url}) and get it in your Profile → Settings.'|t('app', {
             url: 'https://feedbackbird.io/register',
         }),
         value: settings.uID,
@@ -37,8 +37,8 @@
         options: {
             'top-right': 'Top Right',
             'top-left': 'Top Left',
-            'bottom-right': 'Bottom Right',
-            'bottom-left': 'Bottom Left',
+            'right': 'Right',
+            'left': 'Left',
         },
         value: settings.widgetPosition,
         errors: settings.getErrors('widgetPosition')

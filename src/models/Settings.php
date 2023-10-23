@@ -21,7 +21,7 @@ class Settings extends Model
         return [
             [['widgetPosition', 'uID'], 'required'],
             ['widgetStatus', 'boolean', 'trueValue' => true, 'falseValue' => false],
-            ['widgetPosition', 'in', 'range' => ['top-right', 'top-left', 'bottom-right', 'bottom-left']],
+            ['widgetPosition', 'in', 'range' => ['top-right', 'top-left', 'right', 'left']],
             ['widgetColor', 'string'],
             ['widgetButtonLabel', 'string'],
             ['widgetSubtitle', 'string'],
