@@ -1,6 +1,6 @@
 # FeedbackBird
 
-Display the FeedbackBird widget in your CraftCMS website. Collect valuable feedback effortlessly and enhance user engagement. Streamline feedback management with ease.
+Display the FeedbackBird widget in your CraftCMS website. Collect valuable feedback and enhance user engagement. Streamline feedback management with ease.
 
 ## Requirements
 
