@@ -46,6 +46,7 @@ class Assets extends Component
             'uID' => $this->settings->uID,
             'userEmail' => $this->currentUser->getIdentity() ? $this->currentUser->getIdentity()->email : '',
             'widgetPosition' => $this->settings->widgetPosition,
+            'widgetOpeningStyle' => $this->settings->widgetOpeningStyle,
             'widgetColor' => $this->settings->widgetColor,
             'widgetButtonLabel' => $this->settings->widgetButtonLabel,
             'widgetSubtitle' => $this->settings->widgetSubtitle,
