@@ -4,7 +4,7 @@ Display the FeedbackBird widget in your CraftCMS website. Collect valuable feedb
 
 ## Requirements
 
-This plugin requires Craft CMS 4.4.0 or later, and PHP 8.0.2 or later.
+This plugin requires Craft CMS v3.4, v4.0 and v5.0 or later, and PHP 8.0.2 or later.
 
 ## Installation
 
