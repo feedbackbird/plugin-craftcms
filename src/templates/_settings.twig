@@ -46,6 +46,19 @@
         errors: settings.getErrors('widgetPosition')
     }) }}
 
+    {{ forms.selectField({
+        label: 'Widget Opening Style',
+        id: 'widgetOpeningStyle',
+        name: 'widgetOpeningStyle',
+        instructions: 'Please select your preferred method of opening the widget: either as a side panel or a modal window.',
+        options: {
+            'sides': 'Sides',
+            'modal': 'Modal',
+        },
+        value: settings.widgetOpeningStyle,
+        errors: settings.getErrors('widgetOpeningStyle')
+    }) }}
+
     {{ forms.colorField({
         label: 'Widget Color',
         id: 'widgetColor',
